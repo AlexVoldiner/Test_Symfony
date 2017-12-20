@@ -1,0 +1,27 @@
+{% extends '@App/show.html.twig' %}
+
+{% block title %}Products from category{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                {% block menu %}
+                    <li><a href="{{path('show_page') }}">Главная</a></li>
+                    <li><a href="{{path('show_category') }}">Все категории</a></li>
+                    <li><a href="{{path('sonata_admin_redirect') }}">Админпанель</a></li>
+                {% endblock %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block product %}
+    {{ parent() }}
+{% endblock %}
+
+
+
+

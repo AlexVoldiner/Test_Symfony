@@ -1,0 +1,9 @@
+{% block category %}
+    {% for category in categories %}
+        <tr>
+            <td>
+                <a href="{{path('show_product',{'category_id':category.id}) }}"> {{ category.name }} </a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

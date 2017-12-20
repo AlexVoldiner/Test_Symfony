@@ -1,0 +1,43 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{path('show_page') }}">Главная</a></li>
+                <li class="active"><a href="{{path('show_category') }}">Все категории</a></li>
+                <li><a href="{{path('sonata_admin_redirect') }}">Админпанель</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block product %}
+<div class="page-header"></div>
+<div class="container theme-showcase">
+    <div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Категории</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% block category %}
+                {{ render (controller('AppBundle:Default:showCategory')) }}
+            {% endblock %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

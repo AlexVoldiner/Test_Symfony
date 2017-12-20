@@ -1,0 +1,46 @@
+{% extends '/base.html.twig' %}
+{% block product %}
+<div class="page-header"></div>
+<div class="container theme-showcase">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id товара</th>
+                        <th>Наименование</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Категории</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% block category %}
+                        {{ render (controller('AppBundle:Default:showCategory')) }}
+                    {% endblock %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

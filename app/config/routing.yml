@@ -1,0 +1,27 @@
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /admin
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+show_page:
+   path:     /
+   defaults: { _controller: AppBundle:Default:show }
+
+show_category:
+   path:     /category
+   defaults: { _controller: AppBundle:Default:viewCategory }
+
+show_product:
+   path:     /product/{category_id}
+   defaults: { _controller: AppBundle:Default:showProduct }
+
+
+
